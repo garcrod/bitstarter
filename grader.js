@@ -70,7 +70,6 @@ if(require.main == module) {
 	.option('-u, --url <url_link>', 'URL to index.html', URL_DEFAULT)
         .parse(process.argv);
     if (program.url) {
-    	console.log("URL");
 	rest.get(program.url).on('complete', function(result) {
   		if (result instanceof Error) {
     			console.log('Error: ' + result.message);
@@ -83,7 +82,6 @@ if(require.main == module) {
 	});
     }
     else {
-	console.log("FILE");
 	var checkJson = checkHtmlFile(program.file, program.checks);
 	var outJson = JSON.stringify(checkJson, null, 4);
     	console.log(outJson);
